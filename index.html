@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shiritori</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+ 
+ <div id="test">
+     
+    <video autoplay muted loop id="myVideo">
+        <source src="WhatsApp Video 2024-05-22 at 14.28.19.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+      
+      <div class="content" style="text-align: center;">
+        <h1 style="font-size: 170px;opacity: 70%;">しりとり
+        </h1>
+        <p></p>
+        
+        <button id="myBtn" onclick="myFunction()" style="border-radius: 30px; width: 500px; height: 80px;">GET IN</button>
+    </div>
+    
+</div>
+
+<div id="motherDiv"></div>
+
+
+<div id="game" style="display: none;">
+<div id="player1">
+<h1>PLAYER ONE</h1>
+<input type="text" name="" id="box1" placeholder="word">
+<button id="b1">CONFIRM</button>
+</div>
+<div id="player2">
+    <h1>PLAYER TWO</h1>
+    <input type="text" name="" id="box2" placeholder="=word">
+    <button id="b2">CONFIRM</button>
+    </div>
+</div>
+      <script src="https://code.jquery.com/jquery-3.7.1.min.js" > </script>
+      <script src="index.js"></script>
+</body>
+
+
+
+</html>
