@@ -12,6 +12,7 @@ function myFunction() {
 }
 
 $('#myBtn').click(function () {
+  $('.Click')[0].play()
   $('#test').empty()
   var x = $("#motherDiv")
   //    var y = $('').addClass("rules")
@@ -51,7 +52,7 @@ $('#myBtn').click(function () {
    `)
   // $('#myParagraph').css('font-family', 'VT323, monospace');
   $("#start").click(function () {
-
+    $('.Click')[0].play()
     $("#motherDiv").hide()
     $('#game').show()
   });
@@ -82,9 +83,32 @@ class Shiritori {
     this.highscore = +localStorage.getItem("score");
     this.currentscore1 = 0
     this.currentscore2 = 0
-
+    this.time = 10
+    this.displaytime = $('#timer')
+    this.timer = null
   }
+  timing(){
+    
+    var context = this
+  this.timer = setTimeout(function(){
+   if (context.time===0){
+    alert('Game Over Time Out')
+    $('.over')[0].play()
+    context.restart()
+   }
+   context.time--
+   context.dislayer()
+   context.timing()
+  },1000)
+  }
+
+  dislayer(){
+    this.displaytime.text(this.time)
+  }
+
   play(newWord, playernumb) {
+    clearTimeout(this.timer);
+    this.timing();
     console.log(this.ourArr);
     if (!newWord) {
       return setTimeout(function () {
@@ -141,7 +165,8 @@ class Shiritori {
       this.gameOver = true;
       this.ourArr = [];
       this.restart();
-      alert("Game Over : Invalidd word");
+      // 
+      $('#img').show()
       var box = 'box'+playernumb
       $(box).val('');
       return
@@ -151,7 +176,9 @@ class Shiritori {
       this.gameOver = true;
       this.ourArr = [];
       this.restart();
-      alert("Game Over : Invalid word");
+      // alert("Game Over : Invalid word");
+      $('.over')[0].play()
+      $('#img').show()
       $('#box1').val('');
       return
     }
@@ -205,6 +232,22 @@ class Shiritori {
     this.gameOver = false;
     this.ourArr = [];
     this.wordsAlreadySaid = [];
+    this.currentscore1 = 0
+    this.currentscore2 = 0
+    this.time = 10
+    $('#scoreplayer1').text('SCORE :')
+    $('#scoreplayer2').text('SCORE :')
+    $("#b1").attr("disabled", false)
+    $("#b1").css("background", "red")
+    $("#b1").css("color", "black")
+    $("#b1").text("confirm")
+    $("#b2").text("confirm")
+    $("#b2").attr("disabled", false)
+    $("#b2").css("background", "blue")
+    $("#b2").css("color", "black")
+    $('#box1').val('')
+    $('#box2').val('')
+    $('#box1').val('')
   }
   compareScore() {
     console.log(this.ourArr.length, this.highscore);
@@ -225,18 +268,30 @@ var game = new Shiritori()
 
 
 $('#b1').click(function () {
-
-
+  $('.Click')[0].play()
   var input1 = $('#box1').val()
   console.log('hello');
   console.log(game.play(input1, 1))
+  clearTimeout(game.timer);
+  // game.time = 0
   // $("#b1").hide()
+  game.timing()
+  $('#timer').show()
   $("#b2").show()
 
 
 });
 $('#b2').click(function () {
+  $('.Click')[0].play()
   var input2 = $('#box2').val()
   console.log('jjjjj',game.play(input2, 2))
+  clearTimeout(game.timer);
+  game.timing()
+  $('#timer').show()
   $("#b1").show()
 }); 
+
+$('#restart').click(function(){
+  $('.Click')[0].play()
+  game.restart()
+})

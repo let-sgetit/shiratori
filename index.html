@@ -17,7 +17,8 @@
   </style>
 </head>
 <body>
- 
+  <audio class="over" src="./'Tetris' Music - 6 - Game Over.mp3"></audio>
+ <audio class="Click" src="./Shutter Click sound effect (no copyright ).mp3"></audio>
  <div id="test">
      
     <video autoplay muted loop id="myVideo">
@@ -36,10 +37,12 @@
 </div>
 
 <div id="motherDiv"></div>
+<div id="timer" style="display: none;">10</div>
 
                    <!-- Players interfcae -->
 <div id="game" style="display: flex;font-size: 60px; text-align: center;display: none;">
-        
+  <button id="restart" style="height: 60px ;width:400px; margin-left: 40% ;border-radius: 70px;font-size: 40px;font-family: Seven Segment;opacity: 90%;background-color: black;margin-right: 613px;margin-right: 613px; color: white;  left: 39px;"><b>RESTART</b></button>
+        <img id="img" src="./download.jpg" alt="Game Over" style="display: none;">
     <Body style="background-image: url(https://64.media.tumblr.com/0901013c2121ffe2b48a755080bf4523/c606e4a7979684c2-78/s1280x1920/e668408582fde369ac25cfa2fbec4451d66f9673.gif);background-repeat: no-repeat;background-size: 1950px;"></Body>
     <div id="player1">
     <h1 class="animate__animated animate__backInLeft" style="color: brown;color:rgb(255, 255, 255);font-family: Seven Segment; background-color: rgb(221, 17, 17);border-radius: 130px;opacity: 60%;" ><b>PLAYER ONE</b></h1>

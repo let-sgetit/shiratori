@@ -55,7 +55,23 @@
   .paragraph{
     font-family: "Seven Segment", sans-serif
   }
-
-
-
+  #img {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999; /* adjust the z-index as needed */
+  }
  
+  #timer {
+    position: fixed;
+    top: 20px; /* Adjust as needed */
+    left: 20px; /* Adjust as needed */
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000; /* Ensure it's above other content */
+}
