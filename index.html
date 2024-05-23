@@ -5,23 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shiritori</title>
     <link rel="stylesheet" href="style.css">
-    
+    <embed src="ReN - Holding Out For A Hero (Japanese) [Tetris Motion Picture Soundtrack] [official visualiser].m4a" loop="true" autostart="true" width="2"
+         height="0">
 </head>
 <body>
  
  <div id="test">
      
     <video autoplay muted loop id="myVideo">
-        <source src="WhatsApp Video 2024-05-22 at 14.28.19.mp4" type="video/mp4">
+        <source src="lv_0_20240522193557.mp4" type="video/mp4">
         Your browser does not support HTML5 video.
       </video>
       
       <div class="content" style="text-align: center;">
-        <h1 style="font-size: 170px;opacity: 70%;">しりとり
+        <h1 style="font-size: 250px;opacity: 70%;">しりとり
         </h1>
         <p></p>
         
-        <button id="myBtn" onclick="myFunction()" style="border-radius: 30px; width: 500px; height: 80px;">GET IN</button>
+        <button id="myBtn" onclick="myFunction()" style="border-radius: 30px; width: 500px; height: 80px;font-size: 60px;">GET IN</button>
     </div>
     
 </div>
@@ -29,18 +30,20 @@
 <div id="motherDiv"></div>
 
 
-<div id="game" style="display: none;">
-<div id="player1">
-<h1>PLAYER ONE</h1>
-<input type="text" name="" id="box1" placeholder="word">
-<button id="b1">CONFIRM</button>
-</div>
-<div id="player2">
-    <h1>PLAYER TWO</h1>
-    <input type="text" name="" id="box2" placeholder="=word">
-    <button id="b2">CONFIRM</button>
+<div id="game" style="display: flex;font-size: 60px; text-align: center;display: none;">
+        
+    <Body style="background-image: url(https://64.media.tumblr.com/0901013c2121ffe2b48a755080bf4523/c606e4a7979684c2-78/s1280x1920/e668408582fde369ac25cfa2fbec4451d66f9673.gif);background-repeat: no-repeat;background-size: 1950px;"></Body>
+    <div id="player1">
+    <h1  style="color: brown;color:rgb(255, 255, 255);font-family: Arial, Helvetica, sans-serif; background-color: rgb(221, 17, 17);border-radius: 130px;opacity: 60%;" >PLAYER ONE</h1>
+    <input type="text" name="" id="box1" placeholder="" style="border-radius: 30px; height: 60px; width: 600px;background-color: rgba(255, 0, 0, 0.39);font-size: 40px"><br>
+    <button id="b1" style="height: 60px ;width:600px ;border-radius: 70px;font-size: 40px;font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;opacity: 90%;background-color: red;">CONFIRM</button>
     </div>
-</div>
+    <div id="player2" >
+        <h1 style="color:rgb(255, 255, 255);font-family: Arial, Helvetica, sans-serif; background-color: blue;border-radius: 130px;opacity: 60%;">PLAYER TWO</h1>
+        <input type="text" name="" id="box2" placeholder="" style="border-radius: 30px; height: 60px; width: 600px;background-color: rgba(68, 68, 223, 0.288);font-size: 40px;"><br>
+        <button id="b2" style="height: 60px ;width:600px ;border-radius: 70px;font-size: 40px;font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;opacity: 90%;background-color: blue;" >CONFIRM</button>
+        </div>
+    </div>
       <script src="https://code.jquery.com/jquery-3.7.1.min.js" > </script>
       <script src="index.js"></script>
 </body>
