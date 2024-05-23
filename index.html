@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="style.css">
     <embed src="ReN - Holding Out For A Hero (Japanese) [Tetris Motion Picture Soundtrack] [official visualiser].m4a" loop="true" autostart="true" width="2"
          height="0">
+         <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  
+  <style>
+    @import url('https://fonts.cdnfonts.com/css/seven-segment');
+  </style>
 </head>
 <body>
  
@@ -29,19 +37,24 @@
 
 <div id="motherDiv"></div>
 
-
+                   <!-- Players interfcae -->
 <div id="game" style="display: flex;font-size: 60px; text-align: center;display: none;">
         
     <Body style="background-image: url(https://64.media.tumblr.com/0901013c2121ffe2b48a755080bf4523/c606e4a7979684c2-78/s1280x1920/e668408582fde369ac25cfa2fbec4451d66f9673.gif);background-repeat: no-repeat;background-size: 1950px;"></Body>
     <div id="player1">
-    <h1  style="color: brown;color:rgb(255, 255, 255);font-family: Arial, Helvetica, sans-serif; background-color: rgb(221, 17, 17);border-radius: 130px;opacity: 60%;" >PLAYER ONE</h1>
-    <input type="text" name="" id="box1" placeholder="" style="border-radius: 30px; height: 60px; width: 600px;background-color: rgba(255, 0, 0, 0.39);font-size: 40px"><br>
-    <button id="b1" style="height: 60px ;width:600px ;border-radius: 70px;font-size: 40px;font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;opacity: 90%;background-color: red;">CONFIRM</button>
+    <h1 class="animate__animated animate__backInLeft" style="color: brown;color:rgb(255, 255, 255);font-family: Arial, Helvetica, sans-serif; background-color: rgb(221, 17, 17);border-radius: 130px;opacity: 60%;" >PLAYER ONE</h1>
+    <input type="text" name="" id="box1" placeholder="" style="border-radius: 30px; height: 60px; width: 600px;background-color: rgba(255, 0, 0, 0.39);font-size: 40px"><br>    
+    <button id="b1" style="height: 60px ;width:600px ;border-radius: 70px;font-size: 40px;font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;opacity: 90%;background-color: red;margin-right: 613px;">CONFIRM</button>
+    <div id="scoreplayer1" style="height: 60px ;width:600px ;border-radius: 70px;font-size: 40px;font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;opacity: 90%;background-color: red;text-align: center   ;margin-left: 738px;
+    margin-top: -60px;border-radius: 70px;border-color: black;">SCORE</div>
     </div>
     <div id="player2" >
-        <h1 style="color:rgb(255, 255, 255);font-family: Arial, Helvetica, sans-serif; background-color: blue;border-radius: 130px;opacity: 60%;">PLAYER TWO</h1>
+        <h1 class="animate__animated animate__backInRight"    style="color:rgb(255, 255, 255);font-family: Arial, Helvetica, sans-serif; background-color: blue;border-radius: 130px;opacity: 60%;">PLAYER TWO</h1>
         <input type="text" name="" id="box2" placeholder="" style="border-radius: 30px; height: 60px; width: 600px;background-color: rgba(68, 68, 223, 0.288);font-size: 40px;"><br>
-        <button id="b2" style="height: 60px ;width:600px ;border-radius: 70px;font-size: 40px;font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;opacity: 90%;background-color: blue;" >CONFIRM</button>
+        <button id="b2" style="height: 60px ;width:600px ;border-radius: 70px;font-size: 40px;font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;opacity: 90%;background-color: blue;margin-right: 613px" >CONFIRM</button>
+        <div id="scoreplayer2" style="height: 60px ;width:600px ;border-radius: 70px;font-size: 40px;font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;opacity: 90%;background-color: blue;text-align: center   ;margin-left: 738px;
+    margin-top: -60px;border-radius: 70px;border-color: black;">SCORE</div>
+    </div>
         </div>
     </div>
       <script src="https://code.jquery.com/jquery-3.7.1.min.js" > </script>
