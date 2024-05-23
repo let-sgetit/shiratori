@@ -11,12 +11,12 @@ function myFunction() {
   }
 }
 
-$('#myBtn').click(function(){
-   $('#test').empty()
-   var x = $("#motherDiv")
-//    var y = $('').addClass("rules")
-//    var p = $('').addClass('paragraph')
-   $("#motherDiv").append(`
+$('#myBtn').click(function () {
+  $('#test').empty()
+  var x = $("#motherDiv")
+  //    var y = $('').addClass("rules")
+  //    var p = $('').addClass('paragraph')
+  $("#motherDiv").append(`
    <div class= "rules" style="font-size: 35px;padding: 16px;">
   <Body style="background-image: url(https://64.media.tumblr.com/0901013c2121ffe2b48a755080bf4523/c606e4a7979684c2-78/s1280x1920/e668408582fde369ac25cfa2fbec4451d66f9673.gif); background-size: 1300px;"></Body>
 
@@ -50,16 +50,16 @@ $('#myBtn').click(function(){
       color: white;">START</button> </div>
    `)
   // $('#myParagraph').css('font-family', 'VT323, monospace');
-    $("#start").click(function(){
-    
-$("#motherDiv").hide()
-$('#game').show()
-});
+  $("#start").click(function () {
+
+    $("#motherDiv").hide()
+    $('#game').show()
+  });
 
 })
 
 $("#player1").animate({
-  
+
 });
 
 
@@ -75,71 +75,168 @@ $("#player1").animate({
 
 
 class Shiritori {
-    constructor() {
-      this.wordsAlreadySaid = [];
-      this.ourArr = [];
-      this.gameOver = false;
-      this.highscore = +localStorage.getItem("score");
+  constructor() {
+    this.wordsAlreadySaid = [];
+    this.ourArr = [];
+    this.gameOver = false;
+    this.highscore = +localStorage.getItem("score");
+    this.currentscore1 = 0
+    this.currentscore2 = 0
+
+  }
+  play(newWord, playernumb) {
+    console.log(this.ourArr);
+    if (!newWord) {
+      return setTimeout(function () {
+        // this.compareScore();
+        console.log("game over : time out");
+        this.restart(); alert("time is over")
+      }, 1000);
     }
-    play(newWord) {
-      if (!newWord) {
-        return setTimeout(function () {
-          // this.compareScore();
-          console.log("game over : time out");
-          this.restart();
-        }, 10000);
-      }
+    if (playernumb == 1) {
       if (this.ourArr.length === 0) {
         this.ourArr.push(newWord);
         this.wordsAlreadySaid.push(newWord);
-        return "valid";
+        console.log("test", this.ourArr, newWord);
+        this.currentscore1++
+        // alert("Valid word");
+        $("#b1").text("correct!!")
+        $("#b1").attr("disabled", "disabled")
+        $("#b1").css("background", "green")
+        $("#b1").css("color", "white")
+
+        var boxid = "#box" + playernumb
+        console.log(boxid);
+        $(boxid).val('')
+        var scoreplayerid = "#scoreplayer" + playernumb
+        $(scoreplayerid).text('score :' + this.currentscore1)
+
+
+        return
       }
-      if (this.ourArr.includes(newWord)) {
-        this.gameOver = true;
-        this.ourArr = [];
-        this.restart();
-  
-        return "invalid";
+    }
+    else if (playernumb == 2) {
+      if (this.ourArr.length === 0) {
+        this.ourArr.push(newWord);
+        this.wordsAlreadySaid.push(newWord);
+        this.currentscore2++
+        // alert("Valid word");
+        $("#b2").text("correct!!")
+        $("#b2").attr("disabled", "disabled")
+        $("#b2").css("background", "green")
+        $("#b2").css("color", "white")
+        var boxid = "#box" + playernumb
+        $(boxid).val('')
+        var scoreplayerid = "#scoreplayer" + playernumb
+        $(scoreplayerid).text('score :' + this.currentscore2)
+
+
+        return
       }
-  
-      if (this.ourArr[this.ourArr.length - 1].slice(-1) !== newWord.charAt(0)) {
-        this.gameOver = true;
-        this.ourArr = [];
-        this.restart();
-        return "invalid";
-      }
+    }
+
+
+
+     if (this.ourArr.includes(newWord)) {
+      this.gameOver = true;
+      this.ourArr = [];
+      this.restart();
+      alert("Game Over : Invalidd word");
+      var box = 'box'+playernumb
+      $(box).val('');
+      return
+    }
+
+    if (this.ourArr[this.ourArr.length - 1].slice(-1) !== newWord.charAt(0)) {
+      this.gameOver = true;
+      this.ourArr = [];
+      this.restart();
+      alert("Game Over : Invalid word");
+      $('#box1').val('');
+      return
+    }
+
+    if (playernumb == 1) {
       if (this.ourArr[this.ourArr.length - 1].slice(-1) === newWord.charAt(0)) {
         this.ourArr.push(newWord);
         this.wordsAlreadySaid.push(newWord);
         this.compareScore()
-        return "valid";
+        this.currentscore1++
+        // alert("Valid Word");
+        $("#b1").text("correct!!")
+        $("#b1").attr("disabled", true)
+        $("#b1").css("background", "green")
+        $("#b1").css("color", "white")
+        $("#b2").text("confirm")
+        $("#b2").attr("disabled", false)
+        $("#b2").css("background", "blue")
+        $("#b2").css("color", "black")
+        $('#box1').val('')
+        var scoreplayerid = "#scoreplayer" + playernumb
+        $(scoreplayerid).text('score :' + this.currentscore1)
+        return
       }
+
     }
-    restart() {
-      this.gameOver = false;
-      this.ourArr = [];
-      this.wordsAlreadySaid = [];
-    }
-    compareScore() {
-      console.log(this.ourArr.length , this.highscore);
-        if (this.ourArr.length > this.highscore) {
-          console.log("test");
-        this.highscore = this.ourArr.length;
-        console.log("New high score: ", this.highscore);
-        localStorage.setItem("score", this.ourArr.length);
+    if (playernumb == 2) {
+      if (this.ourArr[this.ourArr.length - 1].slice(-1) === newWord.charAt(0)) {
+        this.ourArr.push(newWord);
+        this.wordsAlreadySaid.push(newWord);
+        this.compareScore()
+        this.currentscore2++
+        // alert("Valid Word");
+        $("#b2").text("correct!!")
+        $("#b2").attr("disabled", true)
+        $("#b2").css("background", "green")
+        $("#b2").css("color", "white")
+        $("#b1").text("confirm")
+        $("#b1").attr("disabled", false)
+        $("#b1").css("background", "red")
+        $("#b1").css("color", "black")
+        $('#box2').val('')
+        var scoreplayerid = "#scoreplayer" + playernumb
+        $(scoreplayerid).text('score :' + this.currentscore2)
+        return
       }
+
     }
   }
+  restart() {
+    this.gameOver = false;
+    this.ourArr = [];
+    this.wordsAlreadySaid = [];
+  }
+  compareScore() {
+    console.log(this.ourArr.length, this.highscore);
+    if (this.ourArr.length > this.highscore) {
+      console.log("test");
+      this.highscore = this.ourArr.length;
+      alert("New High Score :" + this.highscore);
 
-  var player1= new Shiritori()
-  var player2 = new Shiritori()
+      console.log("New high score: ", this.highscore);
+      localStorage.setItem("score", this.ourArr.length);
+      return
+    }
+  }
+}
+
+var game = new Shiritori()
 
 
-$('#b1').click(function(){
-    var input1=$('#box1').val()
-  console.log(player1.play(input1))
-}); 
-$('#b2').click(function(){
-    var input2=$('#box2').val()
-  console.log(player2.play(input2))
+
+$('#b1').click(function () {
+
+
+  var input1 = $('#box1').val()
+  console.log('hello');
+  console.log(game.play(input1, 1))
+  // $("#b1").hide()
+  $("#b2").show()
+
+
+});
+$('#b2').click(function () {
+  var input2 = $('#box2').val()
+  console.log('jjjjj',game.play(input2, 2))
+  $("#b1").show()
 }); 
